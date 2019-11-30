@@ -2,13 +2,13 @@ const table = document.querySelector("table");
 const tbody = document.createElement("tbody");
 const errorMsg = document.querySelector(".error");
 const spinner = document.querySelector(".lds-roller");
-
-var page = 1;
+let page = 1;
 
 class UI {
     fetchData() {
         const API_URL = "https://api.punkapi.com/v2/beers";
         spinner.removeAttribute('hidden');
+
         fetch(API_URL + `?page=` + `${page}`)
             .then(response => {
                 response
@@ -24,11 +24,11 @@ class UI {
             .catch(error => {
                 errorMsg.removeAttribute('hidden');
                 errorMsg.textContent = `Sorry, we're unable to display data...`;
-
+                setTimeout(() => {
+                    errorMsg.setAttribute('hidden');
+                }, 5000);
             })
-            .finally(() => {
-                // add success
-            });
+            .finally(() => {});
     }
 
     displayBeers(beers) {
@@ -70,7 +70,6 @@ const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
     v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
 )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
 
-// do the work...
 const tHead = document.querySelector('thead');
 tHead.querySelectorAll('th').forEach(th => th.addEventListener('click', ((el) => {
     const table = th.closest('table');
@@ -81,7 +80,6 @@ tHead.querySelectorAll('th').forEach(th => th.addEventListener('click', ((el) =>
 
     if (el.target.tagName == 'TH') {
         const i = Array.prototype.slice.call(el.target.children)[0];
-        console.log(i)
         i.classList.toggle("down");
     }
 })));
