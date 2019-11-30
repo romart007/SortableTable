@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fetch Beers</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Beers</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <tr>
+                            <!-- <th scope="col">#</th> -->
+                            <th scope="col" title="sort by name">Name
+                                <i class="down"></i>
+                            </th>
+                            <th scope="col" title="sort by tagline">Tagline
+                                <i class="down"></i>
+                            </th>
+                            <th scope="col" title="sort by description">Description
+                                <i class="down"></i>
+                            </th>
+                            <th scope="col" title="sort by abv">ABV
+                                <i class="down"></i>
+                            </th>
+                        </tr>
+                    </tr>
+                </thead>
+                <div class="lds-roller">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </table>
+        </div>
+    </div>
+    <div class="error" hidden></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
